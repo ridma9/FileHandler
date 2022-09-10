@@ -45,10 +45,16 @@ public class FileHandler {
 
     public Student getStudentByName(String name) throws IOException {
         ReadFile();
-        for (Student stud: studs) {
-            if(stud.getName().equals(name)){
+        boolean found = false;
+        for (Student stud : studs) {
+            if (stud.getName().equals(name)) {
+                found = true;
                 return stud;
             }
+        }
+
+        if (found == false) {
+            System.out.println("Name not found ");
         }
         return null;
     }
